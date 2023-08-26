@@ -1,4 +1,6 @@
+from sanic_ext import render
 from sanic import Sanic
+
 from sanic.response import json
 from sanic import response
 from jinja2 import Environment, FileSystemLoader
@@ -30,6 +32,13 @@ async def obtener_usuarios(request):
     return json(usuarios)
 
 """
+
+@app.get("/")
+@app.ext.template("index.html")
+async def handler(request):
+    return {"seq": ["one", "two"]}
+
+
 @app.route("/usuarios", methods=["GET"])
 async def obtener_usuarios(request):
     cursor = db.cursor()
@@ -45,4 +54,5 @@ async def obtener_usuarios(request):
 # Ruta para actualizar un registro existente
 
 if __name__ == '__main__':
-	app.run(host='0.0.0.0', port=8900)
+
+	app.run(host = '0.0.0.0',port = 8500)

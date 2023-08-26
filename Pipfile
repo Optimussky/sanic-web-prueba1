@@ -7,6 +7,7 @@ name = "pypi"
 sanic = "*"
 mysql-connector = "*"
 jinja2 = "*"
+sanic-ext = "*"
 
 [dev-packages]
 
